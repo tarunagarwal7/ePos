@@ -1,5 +1,5 @@
 <!-- /. -->
-<?php session_start(); define("KEY", "passed"); error_reporting(E_ALL & ~E_NOTICE) ?>
+<?php session_start(); define("KEY", "passed"); error_reporting(E_ALL & ~E_NOTICE); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -25,6 +25,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/custom.css"/>    
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-table.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css"/>
 
 <!-- Chart -->
 <script src="<?=base_url()?>assets/js/charts/chart.min.js"></script>

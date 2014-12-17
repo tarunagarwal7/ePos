@@ -59,7 +59,7 @@
                   </td>
                   <td style="">
                     <span class="thedata<?=$row->ID?>"><?=$row->NAME?></span>
-                    <input id="name<?=$row->ID?>" type="text" style="display:none;border:none" class="form-control theedit<?=$row->ID?>" placeholder="<?=$row->NAME?>">
+                    <input id="name<?=$row->ID?>" type="text" style="display:none;border:none" class="form-control theedit<?=$row->ID?>" placeholder="<?=$row->NAME?>" value="<?=$row->NAME?>">
                   </td>
                   <td style="">
                     <span class="thedata<?=$row->ID?>"><?=$this->setting->get_restaurant_name($row->REST_ID)->REST_NAME?></span>
@@ -118,11 +118,7 @@
         <h4 class="modal-title" id="myModalLabel">Add New Printer</h4>
       </div><!-- /.modal-header -->
       <div class="modal-body">
-        <form role="form">
-          <div class="form-group">
-            <label for="bookId">Booking ID -</label> <span class="text-disabled">A108</span>
-          </div>
-
+        <form role="form" method="post" action="">
           <div class="form-group">
             <label for="inputCaption">Printer Name</label>
             <input type="text" class="form-control" id="inputCaption" placeholder="" name="printer_name">
@@ -130,26 +126,26 @@
           <div class="form-group">
             <label for="inputDate">Restaurant</label><br />                                       
             <div class="col-sm-6">
-            <select name="timeFrom" class="btn btn-default">
-              <option>TEST1</option>
-              <option>TEST1</option>
-              <option>TEST1</option>
+            <select name="rest_id" class="form-control">
+            <?php foreach($restaurants as $rows){ ?>
+              <option value = "<?=$rows->REST_ID?>" <?= ($rows->REST_ID==$rest_id)?'selected':''?> ><?=$rows->NAME?></option>
+            <?php } ?>
             </select> 
             </div>
           </div><br />
           <div class="form-group">
             <label for="inputDate">Connectivity</label><br />                                       
             <div class="col-sm-6">
-            <select name="timeFrom" class="btn btn-default">
-              <option>WIFI</option>
-              <option>WIFI</option>
-              <option>WIFI</option>
-            </select> 
+            <select name="conn_code" class="form-control">
+            <?php foreach($connectivity as $rowc){ ?>
+              <option value="<?=$rowc->CODE?>"><?=$rowc->VALUE?></option>
+            <?php } ?>
+            </select>
             </div>
           </div><br />  
           <div class="form-group">
             <label for="inputCaption">IP Address</label>
-            <input type="text" class="form-control" id="inputCaption" placeholder="" name="IP1">
+            <input type="text" class="form-control ipv4" id="inputCaption" placeholder="" name="IP_address">
           </div>
           <div class="form-group">
             <label for="inputCaption">Port</label>
@@ -179,20 +175,21 @@ $(document).ready(function()
     var conn = $("#conn"+idr).val();
     var ip = $("#ip"+idr).val();
     var port = $("#port"+idr).val();
-    var upby = $("#upby"+idr).val();
-    var updt = $("#updt"+idr).val();    
+    var upby = $("#upby"+idr);
+    var updt = $("#updt"+idr);    
     var todt = new Date();
-    var passvars = "{ name : "+name+", rest : "+rest+", conn : "+conn+", ip : "+ip+", port : "+port+" }"; 
+    var dataP = "varP="+idr+","+name+","+rest+","+conn+","+ip+","+port+"&funP=update_printer"; 
     $(".subch").show();
-    $(".subch").click(function(){  
-      //alert(passvars);      
+    $(".subch").click(function(){ 
       $.ajax({
         type: "POST",
         url: "process.html",
-        data: passvars,
+        data: dataP,
         cache: false,
         success: function(result){
-          $("#updt"+idr).html(todt);
+          $("#updt"+idr).html(result);
+          $(".thedata"+idr).toggle();
+          $(".theedit"+idr).toggle();
         }
       }); 
     });
