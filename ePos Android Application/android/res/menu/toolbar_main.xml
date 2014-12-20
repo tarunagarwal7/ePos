@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/orders"
+        android:icon="@drawable/ic_orders"
+        android:orderInCategory="1"
+        android:title="@string/label_menu_orders"
+        app:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/takeout"
+        android:icon="@drawable/ic_takeout"
+        android:orderInCategory="2"
+        android:title="@string/label_menu_takeout"
+        app:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/drawer"
+        android:icon="@drawable/ic_drawer"
+        android:orderInCategory="3"
+        android:title="@string/label_menu_drawer"
+        app:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="4"
+        android:showAsAction="never"
+        android:title="@string/label_menu_settings"/>
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="5"
+        android:showAsAction="never"
+        android:title="@string/label_menu_logout"/>
+
+</menu>

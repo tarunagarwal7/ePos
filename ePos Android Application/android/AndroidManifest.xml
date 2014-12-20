@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.zakuna.pos" >
+    package="co.zakuna.pos" 
+    android:versionCode="1"
+    android:versionName="1.0.0">
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -12,22 +14,45 @@
 
     <application
         android:allowBackup="false"
+        android:icon="@drawable/ic_icon"
+        android:logo="@drawable/ic_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-		<activity android:name=".BaseActivity_" />
+        <activity android:name=".BaseActivity_" />
         <activity
             android:name=".MainActivity_"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity
-			android:name=".LoginActivity_"
+        <activity
+            android:name=".LoginActivity_"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".OrdersActivity_"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity_" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity_" />
+        </activity>
+        <activity
+        	android:name=".TakeoutActivity_"
+        	android:configChanges="orientation|screenSize"
+        	android:screenOrientation="landscape" />
+		<activity
+			android:name=".SettingsActivity_"
+			android:configChanges="orientation|screenSize"
 			android:screenOrientation="landscape" />
-    </application>
-
+		<activity
+			android:name=".PaymentActivity_"
+			android:configChanges="orientation|screenSize"
+			android:screenOrientation="landscape" />
+   		</application>
 </manifest>

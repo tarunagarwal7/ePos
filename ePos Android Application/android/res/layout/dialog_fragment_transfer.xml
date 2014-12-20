@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/windowBackgroundColorSecondary"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_padding" >
+
+    <TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_transfer_table"
+        android:textColor="@color/selector_amber_800"
+        android:textSize="@dimen/text_size_hover" />
+
+    <View style="?attr/horizontalDivider" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_name_opentable"
+        android:ems="10" />
+    <Spinner
+    	android:id="@+id/tables"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_margin="@dimen/layout_margin"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:text="@string/action_confirm" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="@string/action_cancel" />
+    </LinearLayout>
+
+</LinearLayout>

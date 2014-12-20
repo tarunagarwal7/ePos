@@ -4,6 +4,19 @@
     <color name="colorPrimaryDark">#3f51b5</color>
     <color name="colorSecondary">#9fa8da</color>
     <color name="colorSecondaryDark">#5c6bc0</color>
-    <color name="windowBackgroundColor">#424242</color>
+    <color name="windowBackgroundColorSecondary">#424242</color>
+    <color name="windowBackgroundColorPrimary">#222222</color>
+    <color name="selector_amber_900">#FF6F00</color>
+    <color name="selector_amber_800">#FF8F00</color>
+    <color name="selector_amber_800_transparent">#75FF8F00</color>
+    <color name="text_color_hover">#7ac6bb</color>
+    <color name="text_color_white">#fefefe</color>
+    <color name="text_color_view">#aaaaaa</color>
+    <color name="key_background">#fefefe</color>
+    <color name="key_background_press">@android:color/transparent</color>
+    <color name="tab_selected">@android:color/transparent</color>
+    <color name="tab_unselected">#75222222</color>
+    <color name="tab_focused">#ffcc00</color>
+    <color name="red">#d50000</color>
 
 </resources>

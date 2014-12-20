@@ -1,0 +1,5 @@
+<resources>
+
+    <item name="activity_settings" type="layout">@layout/activity_settings_pane</item>
+
+</resources>

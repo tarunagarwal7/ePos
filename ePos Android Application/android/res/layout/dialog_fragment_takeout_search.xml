@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  >
+
+    <LinearLayout
+    	android:id="@+id/layout_toolbar"
+    	android:layout_width="@dimen/dialog_layout_wh_360"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:background="@color/windowBackgroundColorSecondary" >
+		<include layout="@layout/toolbar" />
+		<EditText
+         	android:id="@+id/search"
+         	android:layout_width="match_parent"
+         	android:layout_height="wrap_content"
+         	android:singleLine="true"
+         	android:hint="@string/label_name_searchitem"/>
+    	<include layout="@layout/view_list" />     	
+	</LinearLayout>
+</RelativeLayout>

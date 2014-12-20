@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">POS</string>
+    <string name="app_name">ePOS</string>
+    <string name="app_comp_system">Zakuna ePos</string>
     <string name="action_language">Language</string>
-    <string name="action_settings">Settings</string>
-	<string name="action_login">Login</string>
+    <string name="action_login">LOGIN</string>
+    <string name="action_confirm_order">Confirm Order</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_save">Save</string>
+    <string name="action_pay">Pay</string>
+    <string name="action_payment">Payment</string>
+    <string name="action_payincash">Pay In Cash</string>
+    <string name="label_menu_search">\u0020Search</string>
+    <string name="label_menu_drawer">\u0020Drawer</string>
+    <string name="label_menu_reprint">\u0020\u0020Reprint</string>
+    <string name="label_menu_void_order">\u0020Void Order</string>
+    <string name="label_menu_customer">\u0020Customer</string>
+    <string name="label_menu_note">\u0020Note</string>
+    <string name="label_menu_orders">\u0020Orders</string>
+    <string name="label_menu_ordering">\u0020Ordering</string>
+    <string name="label_menu_ordered">\u0020Ordered</string>
+    <string name="label_menu_takeout">\u0020Takeout</string>
+    <string name="label_menu_settings">Settings</string>
+    <string name="label_menu_logout">Logout</string>
+    <string name="label_password">Password</string>
+    <string name="label_enter_guest">Enter number of guests</string>
+    <string name="label_table">Table</string>
+    <string name="label_time">Time</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_version_title">Version</string>
+    <string name="label_version_development">development</string>
+    <string name="label_version_testing">testing</string>
+    <string name="label_version_production">production</string>
+	<string name="label_name_guest">Guest</string>
+    <string name="label_name_wait">Wait</string>
+    <string name="label_name_searchitem">Search Item</string>
+    <string name="label_name_opentable">Open table</string>
+    <string name="label_name_price">Price</string>
+    <string name="label_name_qty">Quantity</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_takeout">Takeout</string>
+    <string name="title_takeout_ordering">Ordering</string>
+    <string name="title_takeout_ordered">Ordered</string>
+	<string name="title_void_reason">Void Reason</string>
+	<string name="title_kitchen_note">Kitchen Note</string>
+	<string name="title_transfer_table">Transfer order item to another table</string>
 
     <string-array name="language">
-        <item>Indonesia</item>
-        <item>English</item>
+    </string-array>
+    <string-array name="pop_item_ordered">
+        <item>Reprint item</item>
+        <item>Void item</item>
+        <item>Transfer item</item>
+        <item>Change price</item>
+    </string-array>
+    <string-array name="pop_item_ordering">
+        <item>Wait item</item>
+        <item>Kitchen note</item>
+        <item>Modify item</item>
+    </string-array>
+    <string-array name="settings_header">
+        <item>Personal</item>
+        <item>Connection</item>
+        <item>Apps Info</item>
+    </string-array>
+    <string-array name="settings_item_personal">
+        <item>Language</item>
+        <item>Login</item>
+    </string-array>
+    <string-array name="settings_item_connection">
+        <item>Synchronize</item>
+    </string-array>
+    <string-array name="settings_item_info">
+        <item>Update</item>
+        <item>About</item>
     </string-array>
 
-	<string name="error_db_copy">Error copying database</string>
-	<string name="error_db_null">Error database not found</string>
+    <string name="error_db_copy">Error copying database.</string>
+    <string name="error_db_null">Error database not found.</string>
+    <string name="error_msg_required">Data is required.</string>
+    <string name="error_msg_employee">Select employee is failed.</string>
 
 </resources>
