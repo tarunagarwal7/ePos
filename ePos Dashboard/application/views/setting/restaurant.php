@@ -18,14 +18,16 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading"><b>Restaurant Setting</b></div>
-					<div class="panel-body">                 					                    
+					<div class="panel-body">               
+          <?php if ($role == 1) { ?>   					                    
 			      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#bookModal">
-              <span class="glyphicon glyphicon-plus"></span> Add New User
+              <span class="glyphicon glyphicon-plus"></span> Add New Restaurant
             </button>             
             <button type="button" class="btn btn-danger">
-              <span class="glyphicon glyphicon-remove"></span> Delete Selected restaurant(s)
-            </button>        
-            <div style="margin-bottom:15px"></div> 
+              <span class="glyphicon glyphicon-remove"></span> Delete Selected Restaurant(s)
+            </button>
+            <div style="margin-bottom:15px"></div>        
+          <?php } ?> 
             <div class="table-responsive">
 						  <table id="setting" class="table table-striped dt-right compact">
 						    <thead>
@@ -43,7 +45,7 @@
 						        <th>Email Address</th>
 						        <th>Currency</th>
 						        <th>Service Charge</th>
-						        <th>Order No. Prefix</th>
+						        <th>Order No. Start</th>
 						        <th>Created By</th>
 						        <th>Created Date</th>
 						        <th>Updated By</th>
@@ -120,13 +122,14 @@
   </div><!-- /.container-fluid -->
 </div><!-- /#page-content-wrapper -->
 
+<?php if ($role == 1) { ?>
 <!-- Modal -->
 <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add New restaurant</h4>
+        <h4 class="modal-title" id="myModalLabel">Add New Restaurant</h4>
       </div><!-- /.modal-header -->
       <div class="modal-body">  <div id="errmsg"></div>
       <?php
@@ -142,52 +145,88 @@
         </div><br />
         <div class="form-group" style="margin-bottom:10px"> 
           <div class="input-group">       
+            <label for="telephone">Telephone</label>
+            <input type="text" class="form-control" id="telephone" placeholder="" name="telephone" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="FAX">FAX</label>
+            <input type="text" class="form-control" id="FAX" placeholder="" name="FAX" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="address1">Address Line 1</label>
+            <input type="text" class="form-control" id="address1" placeholder="" name="address1" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="address2">Address Line 2</label>
+            <input type="text" class="form-control" id="address2" placeholder="" name="address2" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />	
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="" name="city" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="postalcode">Postal Code</label>
+            <input type="text" class="form-control" id="postalcode" placeholder="" name="postalcode" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" placeholder="" name="country" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="geoloc">Geo Location</label>
+            <input type="text" class="form-control" id="geoloc" placeholder="" name="geoloc" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
             <label for="email">E-mail Address</label>
             <input type="text" class="form-control" id="email" placeholder="please fill in an e-mail format" pattern="^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$" name="email" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="currency">Currency</label>
+            <input type="text" class="form-control" id="currency" placeholder="" name="currency" required>
             <span class="errmsg"></span>
           </div>
         </div><br />        		
         <div class="form-group" style="margin-bottom:10px"> 
           <div class="input-group">       
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="" name="username" required>
+            <label for="service">Service Charge</label>
+            <input type="text" class="form-control" id="service" placeholder="" name="service" required>
+            <span class="errmsg"></span>
+          </div>
+        </div><br />     				
+        <div class="form-group" style="margin-bottom:10px"> 
+          <div class="input-group">       
+            <label for="orderns">Order No. Start</label>
+            <input type="text" class="form-control" id="orderns" placeholder="" name="orderns" required>
             <span class="errmsg"></span>
           </div>
         </div><br />     		
-        <div class="form-group" style="margin-bottom:10px"> 
-          <div class="input-group">       
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="minimum 6 chars" name="password" pattern=".{5,}" required>
-            <span class="errmsg"></span>
-          </div>
-        </div><br />  
-        <div class="form-group" style="margin-bottom:10px"> 
-          <div class="input-group">       
-            <label for="confirm">Confirm Password</label>
-            <input type="password" class="form-control" id="confirm" placeholder="please retype password" name="confirm" pattern=".{5,}" required>
-            <span class="errmsg"></span>
-          </div>
-        </div><br />
-        <div class="form-group" style="margin-bottom:10px">
-          <div class="input-group">       
-            <label for="role">Role</label><br />  
-            <select name="role" class="form-control">
-            <?php foreach($roles as $rowr){ ?>
-              <option value="<?=$rowr->ID?>"><?=$rowr->NAME?></option>
-            <?php } ?>
-            </select>
-          </div>
-        </div><br /> 
-        <div class="form-group" style="margin-bottom:10px"> 
-          <div class="input-group">       
-            <label for="rest_id">Restaurant</label><br /> 
-            <select name="rest_id" class="form-control">
-            <?php foreach($restaurants as $rows){ ?>
-              <option value = "<?=$rows->REST_ID?>" <?= ($rows->REST_ID==$rest_id)?'selected':''?> ><?=$rows->NAME?></option>
-            <?php } ?>
-            </select>
-          </div>
-        </div><br />  
         <div class="form-group text-right" style="margin-bottom:10px">
           <div class="input-group">       
             <button type="submit" class="btn btn-success">Submit</button>
@@ -199,6 +238,8 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal fade -->
+<?php } ?>
+
 <?php  
   //editable script
   $i = 0;
@@ -210,6 +251,110 @@
   $edit_script .= "  var updateurl = '/process/restaurant?p=update';";
   foreach ($restaurant as $row){
   $edit_script .= "  $('#NAME-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#TELEPHONE-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#FAX-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#ADDRESS_LINE_1-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#ADDRESS_LINE_2-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#CITY-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#POSTAL_CODE-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#COUNTRY-".$row->ID."').editable({
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        activate: 'focus',
+                        validate: function(v) {
+                          if (!v) return 'don\'t leave it blank!';
+                        },
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";
+  $edit_script .= "  $('#GEOLOC-".$row->ID."').editable({
                         url: updateurl,
                         pk: ".$row->ID.", 
                         activate: 'focus',
@@ -235,7 +380,27 @@
                           $('#updt".$row->ID."').html(data[1]); 
                       } 
                     });";    
-  $edit_script .= "  $('#USERNAME-".$row->ID."').editable({
+  $edit_script .= "  $('#CURRENCY-".$row->ID."').editable({    
+                        type: 'select',  
+                        url: updateurl,
+                        pk: ".$row->ID.", 
+                        value: '".$row->CURRENCY."', 
+                        source: [ ";
+    $r = 1; 
+    $t = count($currencies);                   
+    foreach($currencies as $rowc){      
+      $edit_script .= "  {value: '".$rowc->CODE."', text: '".$rowc->VALUE."'}";
+      $edit_script .= ($r<$t)?", ":"";
+      $t++;
+    }                      
+  $edit_script .= "     ],
+                        success: function(result){  
+                          var data = result.split(',');
+                          $('#upby".$row->ID."').html(data[0]);
+                          $('#updt".$row->ID."').html(data[1]); 
+                      } 
+                    });";    
+  $edit_script .= "  $('#SERVICE_CHARGE-".$row->ID."').editable({
                         url: updateurl,
                         pk: ".$row->ID.", 
                         validate: function(v) {
@@ -246,74 +411,7 @@
                           $('#upby".$row->ID."').html(data[0]);
                           $('#updt".$row->ID."').html(data[1]); 
                       } 
-                    });";    
-                    
-  $edit_script .= "  $('#PASSWORD-".$row->ID."').editable({ 
-                        url: updateurl,
-                        mode: 'popup',
-                        placement: 'right',
-                        showbuttons: true,
-                        pk: ".$row->ID.",
-        tpl: '<div class=\"editable-address\"><label><span>Pass1: </span><input type=\"password\" name=\"pass1\" class=\"input-small\"></label></div><br>'+
-             '<div class=\"editable-address\"><label><span>Pass2: </span><input type=\"password\" name=\"pass2\" class=\"input-small\"></label></div>',         
-                        success: function(result){  
-                          var data = result.split(',');
-                          $('#upby".$row->ID."').html(data[0]);
-                          $('#updt".$row->ID."').html(data[1]); 
-                      } 
                     });";
-  $edit_script .= "  $('#ROLE_ID-".$row->ID."').editable({    
-                        type: 'select',  
-                        url: updateurl,
-                        pk: ".$row->ID.", 
-                        value: ".$row->ROLE_ID.", 
-                        source: [ ";
-    $r = 1; 
-    $t = count($roles);                   
-    foreach($roles as $rowr){      
-      $edit_script .= "  {value: ".$rowr->ID.", text: '".$rowr->NAME."'}";
-      $edit_script .= ($r<$t)?", ":"";
-      $t++;
-    }                      
-  $edit_script .= "     ],
-                        success: function(result){  
-                          var data = result.split(',');
-                          $('#upby".$row->ID."').html(data[0]);
-                          $('#updt".$row->ID."').html(data[1]); 
-                      } 
-                    });";
-                    
-  $edit_script .= "  $('#REST_ID-".$row->ID."').editable({
-                        type: 'checklist',  
-                        mode: 'popup',
-                        placement: 'right',
-                        value: [";  
-		$assigned = $this->setting->get_assigned_rest($row->ID);
-    $a = 1;
-    $b = count($assigned);                    
-    foreach($assigned as $rowa){   
-      $edit_script .= $rowa->REST_ID;
-      $edit_script .= ($a<$b)?", ":"";
-      $a++;
-    }
-  $edit_script .= "     ], 
-                        source: [ ";
-    $j = 1;
-    $n = count($restaurants);
-    foreach($restaurants as $rows){
-      $edit_script .= "  {value: ".$rows->REST_ID.", text: '".$rows->NAME."'}";
-      $edit_script .= ($j<$n)?", ":"";
-      $j++;
-    }
-  $edit_script .= "    ],
-                        url: updateurl,
-                        pk: ".$row->ID.",
-                        success: function(result){  
-                          var data = result.split(',');
-                          $('#upby".$row->ID."').html(data[0]);
-                          $('#updt".$row->ID."').html(data[1]); 
-                        }  
-                      });";
   }
   $edit_script .= "}); ";
 	$edit_script .= '</script>';
