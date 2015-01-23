@@ -1,25 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Restaurant_controller extends CI_Controller {
+class Inventory_controller extends CI_Controller {
 	
 	function __construct()
 	{
 		parent::__construct();	
-		$this->load->model('setting/restaurant_model','setting',TRUE);  
+		$this->load->model('inventory_model','inventory',TRUE);  
     $this->load->helper(array('form', 'url','html'));
 		$session_data = $this->session->userdata('logged_in');  
-		$this->data['menu'] = 'setting';      
-		$this->data['user'] = $this->setting->get_profile();
-		$this->data['restaurants'] = $this->setting->get_restaurant(); 
+		$this->data['menu'] = 'inventory';      
+		$this->data['user'] = $this->inventory->get_profile();
+		$this->data['restaurants'] = $this->inventory->get_restaurant(); 
 	}
 
 	public function index()
 	{
 		if($this->session->userdata('logged_in'))
 		{
-			$data['menu'] = 'setting';         
-			$session_data = $this->session->userdata('logged_in');  
-		  $data['role'] = $session_data['role'];
+			$data['menu'] = 'inventory';         
+			$session_data = $this->session->userdata('logged_in');
 			$data['def_rest'] = $session_data['def_rest'];
 			$data['def_start_date'] = date('d M Y', time() - 30 * 60 * 60 * 24);
 			$data['def_end_date'] = date('d M Y', time());
@@ -29,22 +28,17 @@ class Restaurant_controller extends CI_Controller {
 			$data['rest_id'] = $rest_id;
 			$data['startdate'] = $start_date;
 			$data['enddate'] = $end_date; 
-			                                 
-      if($this->input->post('email') && $data['role']==1){             
-		    $this->setting->new_restaurant(
-          $this->input->post('name'),$this->input->post('telephone'),$this->input->post('FAX'),
-          $this->input->post('address1'),$this->input->post('address2'),$this->input->post('city'),
-          $this->input->post('postalcode'),$this->input->post('country'),$this->input->post('geoloc'),
-          $this->input->post('email'),$this->input->post('currency'),$this->input->post('service')
-        );
+			
+      if($this->input->post('inventory_type')){               
+		    $this->inventory->new_inventory($this->input->post('inventory_mac'),$this->input->post('inventory_type'),$this->input->post('inventory_manufacturer'),$this->input->post('inventory_model'),$this->input->post('rest_id'));
       } 
       
-		  $data['restaurant'] = $this->setting->get_restaurant_data();
-		  $data['currencies'] = $this->setting->get_currencies();			                   
+		  $data['inventory'] = $this->inventory->get_rest_inventory($rest_id);
+			                   
 			
 			$this->load->view('shared/header',$this->data);
 			$this->load->view('shared/left_menu', $data);
-			$this->load->view('setting/restaurant',$data);
+			$this->load->view('inventory',$data);
 			$this->load->view('shared/footer');
 		}
 		else
@@ -57,7 +51,7 @@ class Restaurant_controller extends CI_Controller {
 	
 	public function profile()
 	{
-		$data['profile'] = $this->setting->get_profile();
+		$data['profile'] = $this->inventory->get_profile();
 		
 		$this->load->view('shared/header',$this->data);
 		$this->load->view('shared/left_menu');

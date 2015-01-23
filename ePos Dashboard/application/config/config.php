@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 date_default_timezone_set('Asia/Jakarta');
 
@@ -16,7 +16,7 @@ date_default_timezone_set('Asia/Jakarta');
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.1.6/';
+$config['base_url']	= 'http://localhost/~tarunagarwal/epos';
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +46,8 @@ $config['index_page'] = '';
 | 'REQUEST_URI'		Uses the REQUEST_URI
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
-*/                  
-$config['uri_protocol'] = 'REQUEST_URI';  
+*/
+$config['uri_protocol'] = 'REQUEST_URI';
 //$config['uri_protocol']	= 'AUTO';
 
 /*
